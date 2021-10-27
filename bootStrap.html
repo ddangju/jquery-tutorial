@@ -54,7 +54,7 @@
       </div>
     </div>
     <div class="navMenu">
-      <h4>STUDIO</h4>
+      <h4 class="nav">STUDIO</h4>
       <a class="productBtn">Products</a>
     </div>
     <ul class="list-group listContainer">
@@ -83,13 +83,65 @@
         >Menu</a
       >
     </div>
-    <!-- <input id="inputTest" /> -->
+    <div class="container mt-5">
+      <ul class="list">
+        <li class="tab-button">Products</li>
+        <li class="tab-button active">Information</li>
+        <li class="tab-button">Shipping</li>
+      </ul>
+
+      <div class="tab-content">
+        <p>상품설명입니다. Product</p>
+      </div>
+      <div class="tab-content">
+        <p>상품정보입니다. Info</p>
+      </div>
+      <div class="tab-content">
+        <p>배송정보입니다. Shipping</p>
+      </div>
+    </div>
+    <h1 class="my-4 text-center">showcase</h1>
+    <div style="overflow: hidden; position: relative">
+      <div class="slideContainer">
+        <div class="slideBox">
+          <img src="./1.jpg" />
+        </div>
+        <div class="slideBox">
+          <img src="./2.png" />
+        </div>
+        <div class="slideBox">
+          <img src="./3.jpg" />
+        </div>
+      </div>
+      <button class="next2">Next</button>
+      <button class="next">Next</button>
+    </div>
+    <button class="slide1">1</button>
+    <button class="slide2">2</button>
+    <button class="slide3">3</button>
+    <div class="my-5"></div>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
       crossorigin="anonymous"
     ></script>
+    <script src="check.js"></script>
+    <script src="scroll.js"></script>
+    <script src="carousel.js"></script>
+    <script src="tap.js"></script>
     <script>
+      // test = console.log(
+      //   test[0].style.transform.translateX +
+      //     test[0].style.transform.translateX
+      // );
+
+      // $(".slide2").click(function () {
+      //   $(".slideContainer").css("transform", "translateX(-100vw)");
+      // });
+      // $(".slide3").click(function () {
+      //   $(".slideContainer").css("transform", "translateX(-200vw)");
+      // });
       // $(".btn").click(function () {
       //   console.log($("#inputTest").val());
       //   if ($("#inputTest").val() == "안녕") {
@@ -100,32 +152,25 @@
       //   }
       // });
 
-      $("form").on("submit", function (e) {
-        if ($("#email").val() == "") {
-          e.preventDefault();
-          $("#email-alert").show();
-        }
-        if ($("#password").val() == "") {
-          e.preventDefault();
-          $("#password-alert").show();
-        }
-      });
+      // $("form").on("submit", function (e) {
+      //   if (/[A - Z] +/.test(password) == false) {
+      //     e.preventDefault();
+      //     alert("비번확인");
+      //   }
+      // });
 
-      // $("#loginBtn").click(function () {
-      //   $(".modalContainer").animate({ marginTop: "0px" });
-      // });
-      // $("#loginBtn").click(function () {
-      //   $(".modalContainer").show();
-      // });
-      // $("#loginBtn").click(function () {
-      //   $(".modalContainer").slide();
-      // });
+      // 1) css를 조작하여 동작하는방법=>transition이 더욱 스무스하고 많이 사용함
       $("#loginBtn").click(function () {
-        $(".modalContainer").show().animate({ marginTop: "0px" }, 1000);
+        console.log("gd");
+        $(".modalContainer").css("transform", "translateY(0px)");
       });
+      //2) 애니메이션을 주어서 margin값을 조정하여 동작하는 방법
+      // $("#loginBtn").click(function () {
+      //   $(".modalContainer").show().animate({ marginTop: "0px" }, 1000);
+      // });
 
       $(".closeBtn").click(function () {
-        $(".modalContainer").fadeOut();
+        $(".modalContainer").css("transform", "translateY(-1000px)");
       });
 
       $(".productBtn").on("click", function () {
