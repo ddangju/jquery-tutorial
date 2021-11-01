@@ -59,7 +59,7 @@ $("#option1").change(function () {
     size.forEach(function (i) {
       const context2 = `<option>${i}</option>`;
       $("#menu").append(context2);
-      //6번 반복
+      //6번 반복///
       //i는 size 하나하나의 데이터임
     });
   }
