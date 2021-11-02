@@ -29,31 +29,15 @@
       crossorigin="anonymous"
     ></script>
     <script src="sort.js"></script>
-    <div class="card-group container">
-      <div class="card">
+    <div class="card-group container" id="cardContainer">
+      <!-- <div class="card">
         <img src="https://via.placeholder.com/600" />
         <div class="card-body">
           <h5 class="title"></h5>
-          <p class="price">가격 : 70000</p>
-          <button class="btn btn-danger">주문하기</button>
+          <p class="price"></p>
+          <button class="btn btn-danger"></button>
         </div>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/600" />
-        <div class="card-body">
-          <h5 class="title"></h5>
-          <p class="price">가격 : 70000</p>
-          <button class="btn btn-danger">주문하기</button>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/600" />
-        <div class="card-body">
-          <h5 class="title"></h5>
-          <p class="price">가격 : 70000</p>
-          <button class="btn btn-danger">주문하기</button>
-        </div>
-      </div>
+      </div> -->
     </div>
     <div class="btnContainer my-4">
       <button class="btn btn-danger" id="sortPrice">가격순정렬</button>
@@ -65,20 +49,51 @@
     <script>
       ///서버가 보낸 쇼핑몰 상품데이터
       let products = [
-        { id: 0, price: 70000, title: "Blossom Dress" },
-        { id: 1, price: 50000, title: "Springfield Shirt" },
-        { id: 2, price: 60000, title: "Black Monastery" },
+        { price: 70000, title: "Blossom Dress" },
+        { price: 50000, title: "Springfield Shirt" },
+        { price: 60000, title: "Black Monastery" },
+        { price: 40000, title: "민트초코" },
+        { price: 30000, title: "체리블라썸" },
       ];
 
       ///sort() 문자정렬
 
       //어레이.sort(콜백함수(){})
+      // id
+
+      for (let i = 0; i < products.length; i++) {
+        products[i].id = i;
+        const cardContainer = document.getElementById("cardContainer");
+        const card = document.createElement("div");
+        card.className = "card";
+        const img = document.createElement("img");
+        img.src = "https://via.placeholder.com/600";
+        const cardBody = document.createElement("div");
+        cardBody.className = "card-body";
+        const title = document.createElement("h5");
+        title.className = "title";
+        title.innerText = products[i].title;
+        const price = document.createElement("p");
+        price.className = "price";
+        price.innerText = products[i].price;
+        const btn = document.createElement("button");
+        btn.className = "btn btn-danger";
+        btn.innerText = "주문하기";
+
+        cardBody.appendChild(title);
+        cardBody.appendChild(price);
+        cardBody.appendChild(btn);
+
+        card.appendChild(img);
+        card.appendChild(cardBody);
+        cardContainer.appendChild(card);
+      }
 
       $("#sortPrice").click(function () {
         products.sort(function (a, b) {
           return a.price - b.price;
         });
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < products.length; i++) {
           $(".title").eq(i).html(products[i].title);
           $(".price")
             .eq(i)
@@ -86,11 +101,18 @@
         }
       });
 
-      $("#filterBtn").click(function () {
-        const filter2 = products.filter(function (item) {
-          return item.price > 50000;
+      $("#filterBtn").click(() => {
+        const price = document.getElementsByClassName("price");
+        Array.from(price).forEach((item) => {
+          if (
+            item.innerText < 40000 &&
+            item.parentElement.parentElement.className !== "card hidden"
+          ) {
+            item.parentElement.parentElement.className = "card hidden";
+          } else {
+            item.parentElement.parentElement.className = "card";
+          }
         });
-        console.log(filter2);
       });
     </script>
   </body>

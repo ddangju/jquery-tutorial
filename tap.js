@@ -48,23 +48,26 @@ function tabOpen(num) {
 
 $(".list").click(function (e) {
   // tabOpen(e.target);
+  // console.log(e.target.dataset);
+  // console.log(e.target.dataset.id);
+
   tabOpen(e.target.dataset.a);
   // console.log(e.target);
 });
-function tabOpen(a) {
-  console.log(a);
+function tabOpen(tab) {
+  // console.log(a);
   $(".tab-button").removeClass("active");
   $(".tab-content").removeClass("show");
 
-  $(".tab-button").eq(a).addClass("active");
-  $(".tab-content").eq(a).addClass("show");
+  $(".tab-button").eq(tab).addClass("active");
+  $(".tab-content").eq(tab).addClass("show");
 }
 
 ///3. 제이쿼리방식으로 html에 몰래 정보를 저장하는 법
 
-$(".list").data("작명", "값");
+// $(".list").data("작명", "값");
 
-///꺼내올때
-$(".list").data("작명");
+// ///꺼내올때
+// $(".list").data("작명");
 
-console.log($(".list").data("hey", "A"));
+// console.log($(".list").data("hey", "A"));

@@ -15,18 +15,18 @@
 
 //// 2) js로 html에 option집어넣기!
 
-// $("#option1").change(function () {
-//   if ($("#option1").val() == "셔츠") {
-//     $("#menu").html("");
-//     const context = `<option>95</option><option>100<option>105</option></option>`;
-//     $("#menu").append(context);
-//     //템플릿을 만들고 append한다
-//   } else if ($("#option1").val() == "바지") {
-//     $("#menu").html("");
-//     const context2 = `<option>28</option><option>29</option><option>30</option>`;
-//     $("#menu").append(context2);
-//   }
-// });
+$("#option1").change(function () {
+  if ($("#option1").val() == "셔츠") {
+    $("#menu").html("");
+    const context = `<option>95</option><option>100<option>105</option></option>`;
+    $("#menu").append(context);
+    //템플릿을 만들고 append한다
+  } else if ($("#option1").val() == "바지") {
+    $("#menu").html("");
+    const context2 = `<option>28</option><option>29</option><option>30</option>`;
+    $("#menu").append(context2);
+  }
+});
 
 // 만약에 option1ㄱ값이 셔츠랑 같으면\
 // menu 비우고 option1
