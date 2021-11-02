@@ -18,6 +18,7 @@
     <h1>Hello, world!</h1>
 
     <link href="shopping.css" rel="stylesheet" />
+
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
@@ -49,11 +50,12 @@
     <script>
       ///서버가 보낸 쇼핑몰 상품데이터
       let products = [
-        { price: 70000, title: "Blossom Dress" },
-        { price: 50000, title: "Springfield Shirt" },
-        { price: 60000, title: "Black Monastery" },
-        { price: 40000, title: "민트초코" },
-        { price: 30000, title: "체리블라썸" },
+        { price: 40000, title: "souffle", img: "0.png" },
+        { price: 70000, title: "Caramel Macchiato", img: "1.png" },
+        { price: 50000, title: "Fruit ice", img: "2.png" },
+        { price: 60000, title: "Donuts", img: "3.png" },
+        { price: 40000, title: "Tart", img: "4.png" },
+        { price: 30000, title: "pancake", img: "5.png" },
       ];
 
       ///sort() 문자정렬
@@ -67,7 +69,8 @@
         const card = document.createElement("div");
         card.className = "card";
         const img = document.createElement("img");
-        img.src = "https://via.placeholder.com/600";
+        img.className = "이미지";
+        img.src = `./img/${products[i].img}`;
         const cardBody = document.createElement("div");
         cardBody.className = "card-body";
         const title = document.createElement("h5");
@@ -95,17 +98,17 @@
         });
         for (let i = 0; i < products.length; i++) {
           $(".title").eq(i).html(products[i].title);
-          $(".price")
-            .eq(i)
-            .html("가격 :" + products[i].price);
+          $(".이미지").eq(i).attr("src", `./img/${products[i].img}`);
+          $(".price").eq(i).html(products[i].price);
         }
       });
 
       $("#filterBtn").click(() => {
         const price = document.getElementsByClassName("price");
         Array.from(price).forEach((item) => {
+          console.log(item.innerText);
           if (
-            item.innerText < 40000 &&
+            item.innerText < 50000 &&
             item.parentElement.parentElement.className !== "card hidden"
           ) {
             item.parentElement.parentElement.className = "card hidden";
