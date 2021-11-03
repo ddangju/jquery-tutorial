@@ -1,3 +1,14 @@
 .hidden {
   display: none;
 }
+/* h1 {
+  margin: 60px;
+} */
+/* 
+.btn-danger {
+  margin-left: 70px;
+} */
+#sortPrice,
+#filterBtn {
+  margin-left: 70px;
+}
