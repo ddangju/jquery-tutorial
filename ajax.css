@@ -1,0 +1,17 @@
+.cardBackground {
+  height: 3000px;
+  margin-top: 800px;
+  margin-bottom: 1600px;
+}
+
+.cardBox img {
+  display: block;
+  margin: auto;
+  max-width: 80%;
+}
+
+.cardBox {
+  position: sticky;
+  top: 200px;
+  margin-top: 200px;
+}
